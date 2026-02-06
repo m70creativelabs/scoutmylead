@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - MyLeadScout</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #111827;
+      background: #fff;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .last-updated {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    p, ul {
+      margin-bottom: 16px;
+      color: #374151;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: #111827;
+    }
+    a {
+      color: #111827;
+      text-decoration: underline;
+    }
+    .highlight {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .highlight p {
+      margin-bottom: 0;
+      color: #16a34a;
+      font-weight: 500;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: February 5, 2026</p>
+
+    <div class="highlight">
+      <p>MyLeadScout does not collect, store, or transmit any of your personal data to our servers. We have no servers. Everything runs inside your Google Sheets environment.</p>
+    </div>
+
+    <h2>1. Overview</h2>
+    <p>MyLeadScout is a Google Sheets Add-on that helps users find local business information using the Google Places API. It operates on a "Bring Your Own Key" (BYOK) model, meaning users provide their own Google Maps API key to use the service.</p>
+
+    <h2>2. Data We Collect</h2>
+    <p><strong>None.</strong> MyLeadScout does not collect, store, or have access to any user data. Specifically:</p>
+    <ul>
+      <li>We do not operate any servers or databases.</li>
+      <li>We do not collect personal information such as names, emails, or payment details.</li>
+      <li>We do not use analytics, tracking pixels, or cookies.</li>
+      <li>We do not collect usage statistics or telemetry.</li>
+    </ul>
+
+    <h2>3. Your API Key</h2>
+    <p>Your Google Maps API key is stored locally within your Google account using Google Apps Script's <strong>UserProperties</strong> service. This means:</p>
+    <ul>
+      <li>The key is stored per-user and per-script by Google's infrastructure.</li>
+      <li>The key never leaves Google's servers. It is used server-side to call the Google Places API directly.</li>
+      <li>No other user of the same spreadsheet can access your key.</li>
+      <li>We (the developers of MyLeadScout) cannot see, access, or retrieve your key.</li>
+    </ul>
+
+    <h2>4. Spreadsheet Data</h2>
+    <p>MyLeadScout writes business listing data (names, addresses, phone numbers, websites, ratings) into your active Google Sheet. This data:</p>
+    <ul>
+      <li>Comes directly from the Google Places API in response to your search queries.</li>
+      <li>Is written only to your spreadsheet.</li>
+      <li>Is never sent to us or any third party.</li>
+    </ul>
+
+    <h2>5. Third-Party Services</h2>
+    <p>The only external service MyLeadScout communicates with is the <strong>Google Places API (New)</strong>, using your own API key. This communication happens entirely within Google's infrastructure (from Google Apps Script servers to Google's Places API servers). We are not an intermediary in this process.</p>
+    <p>Your use of the Google Places API is governed by <a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google's Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+    <h2>6. Permissions Explained</h2>
+    <p>MyLeadScout requests the following Google permissions:</p>
+    <ul>
+      <li><strong>View and manage the current spreadsheet</strong> — To write search results and headers to your active sheet. This permission is limited to the spreadsheet where the add-on is used; it cannot access your other spreadsheets.</li>
+      <li><strong>Connect to external services</strong> — To make API calls to the Google Places API using your key.</li>
+      <li><strong>Display sidebar</strong> — To show the MyLeadScout search interface within Google Sheets.</li>
+    </ul>
+
+    <h2>7. Data Retention</h2>
+    <p>Since we do not collect any data, there is nothing to retain or delete. Your API key remains in your Google UserProperties until you change or remove it via the add-on. You can also uninstall the add-on at any time to remove all associated data.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>MyLeadScout is not directed at children under the age of 13 and does not knowingly collect any information from children.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>If we update this Privacy Policy, we will revise the "Last updated" date at the top of this page. Since we do not collect emails or contact information, we encourage users to review this page periodically.</p>
+
+    <h2>10. Contact</h2>
+    <p>If you have questions about this Privacy Policy, please contact us at:</p>
+    <p><strong>[YOUR_EMAIL_ADDRESS]</strong></p>
+  </div>
+</body>
+</html>
