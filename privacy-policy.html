@@ -71,64 +71,121 @@
 <body>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: February 5, 2026</p>
+    <p class="last-updated">Last updated: February 25, 2026</p>
 
     <div class="highlight">
-      <p>MyLeadScout does not collect, store, or transmit any of your personal data to our servers. We have no servers. Everything runs inside your Google Sheets environment.</p>
+      <p>MyLeadScout collects only the minimum data needed to provide the service: your Google email for authentication and your encrypted API key for searches. We never sell your data.</p>
     </div>
 
     <h2>1. Overview</h2>
-    <p>MyLeadScout is a Google Sheets Add-on that helps users find local business information using the Google Places API. It operates on a "Bring Your Own Key" (BYOK) model, meaning users provide their own Google Maps API key to use the service.</p>
+    <p>MyLeadScout is a web application that helps users find local business leads using the Google Places API and manage them through a built-in sales pipeline. This Privacy Policy explains what data we collect, how we use it, and how we protect it.</p>
 
     <h2>2. Data We Collect</h2>
-    <p><strong>None.</strong> MyLeadScout does not collect, store, or have access to any user data. Specifically:</p>
+    <p>We collect and store the following data when you use MyLeadScout:</p>
+
+    <p><strong>2.1 Account Information (via Google OAuth)</strong></p>
     <ul>
-      <li>We do not operate any servers or databases.</li>
-      <li>We do not collect personal information such as names, emails, or payment details.</li>
-      <li>We do not use analytics, tracking pixels, or cookies.</li>
-      <li>We do not collect usage statistics or telemetry.</li>
+      <li><strong>Email address</strong> &mdash; Used as your unique account identifier and for subscription management.</li>
+      <li><strong>Display name and profile picture</strong> &mdash; Displayed in the app interface for your convenience.</li>
+    </ul>
+    <p>This information is obtained through Google OAuth when you sign in. We do not access your Gmail, Google Drive, contacts, or any other Google services beyond basic profile information.</p>
+
+    <p><strong>2.2 Google Maps API Key</strong></p>
+    <ul>
+      <li>Your API key is encrypted using <strong>AES-256-GCM</strong> encryption before being stored in our database.</li>
+      <li>The encryption key is stored separately in our server environment variables and is never included in client-side code.</li>
+      <li>We cannot read your API key in plaintext &mdash; even we cannot decrypt it without the server-side encryption key.</li>
+      <li>Your API key is only decrypted momentarily on our server when executing a search on your behalf, and is never logged or cached.</li>
     </ul>
 
-    <h2>3. Your API Key</h2>
-    <p>Your Google Maps API key is stored locally within your Google account using Google Apps Script's <strong>UserProperties</strong> service. This means:</p>
+    <p><strong>2.3 Usage Data</strong></p>
     <ul>
-      <li>The key is stored per-user and per-script by Google's infrastructure.</li>
-      <li>The key never leaves Google's servers. It is used server-side to call the Google Places API directly.</li>
-      <li>No other user of the same spreadsheet can access your key.</li>
-      <li>We (the developers of MyLeadScout) cannot see, access, or retrieve your key.</li>
+      <li><strong>Subscription status</strong> &mdash; Your current plan (Free, Pro, or Max).</li>
+      <li><strong>Lead usage count</strong> &mdash; The number of leads you have found in the current billing period, used to enforce tier limits.</li>
+      <li><strong>Monthly reset date</strong> &mdash; When your lead usage count resets.</li>
     </ul>
 
-    <h2>4. Spreadsheet Data</h2>
-    <p>MyLeadScout writes business listing data (names, addresses, phone numbers, websites, ratings) into your active Google Sheet. This data:</p>
+    <p><strong>2.4 Pipeline / CRM Data</strong></p>
+    <p>When you qualify leads into your sales pipeline, we store:</p>
     <ul>
-      <li>Comes directly from the Google Places API in response to your search queries.</li>
-      <li>Is written only to your spreadsheet.</li>
-      <li>Is never sent to us or any third party.</li>
+      <li>Business information (name, address, phone, website, rating, review count, Google Maps URL, category).</li>
+      <li>Pipeline metadata you create: deal stage, contact status, tags, notes, potential value, follow-up dates.</li>
+      <li>Activity logs you create: call notes, email records, meeting notes, and other outreach activities.</li>
+    </ul>
+    <p>This data is associated with your account and is accessible only to you.</p>
+
+    <p><strong>2.5 Data We Do NOT Collect</strong></p>
+    <ul>
+      <li>We do not use analytics, tracking pixels, or advertising cookies.</li>
+      <li>We do not collect IP addresses, browser fingerprints, or device identifiers.</li>
+      <li>We do not collect payment card details &mdash; all payments are handled by LemonSqueezy.</li>
+      <li>We do not collect telemetry or behavioral tracking data.</li>
+    </ul>
+
+    <h2>3. How We Use Your Data</h2>
+    <ul>
+      <li><strong>Authentication</strong> &mdash; Your email identifies your account and links to your stored data.</li>
+      <li><strong>Search execution</strong> &mdash; Your encrypted API key is temporarily decrypted server-side to call the Google Places API on your behalf.</li>
+      <li><strong>Usage enforcement</strong> &mdash; Lead counts ensure you stay within your subscription tier limits.</li>
+      <li><strong>Subscription management</strong> &mdash; Your email is passed to LemonSqueezy to pre-fill checkout and link subscriptions to your account.</li>
+      <li><strong>Pipeline features</strong> &mdash; Your CRM data is stored and retrieved to provide pipeline, activity tracking, and reporting features.</li>
+    </ul>
+
+    <h2>4. Data Storage and Security</h2>
+    <ul>
+      <li><strong>Database:</strong> All user data is stored in <strong>Firebase Firestore</strong> (Google Cloud infrastructure).</li>
+      <li><strong>Firestore security rules</strong> block all direct client-side access. All data access goes through our authenticated server-side API routes.</li>
+      <li><strong>API key encryption:</strong> AES-256-GCM with a separate server-side key. Stored format: <code>{iv}:{authTag}:{ciphertext}</code>.</li>
+      <li><strong>Authentication:</strong> Google OAuth via NextAuth.js v5 with secure session management.</li>
+      <li><strong>Hosting:</strong> The web application is hosted on <strong>Vercel</strong>. Server-side functions run on <strong>Firebase Cloud Functions</strong>.</li>
     </ul>
 
     <h2>5. Third-Party Services</h2>
-    <p>The only external service MyLeadScout communicates with is the <strong>Google Places API (New)</strong>, using your own API key. This communication happens entirely within Google's infrastructure (from Google Apps Script servers to Google's Places API servers). We are not an intermediary in this process.</p>
-    <p>Your use of the Google Places API is governed by <a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google's Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
-
-    <h2>6. Permissions Explained</h2>
-    <p>MyLeadScout requests the following Google permissions:</p>
+    <p>MyLeadScout uses the following third-party services:</p>
     <ul>
-      <li><strong>View and manage the current spreadsheet</strong> — To write search results and headers to your active sheet. This permission is limited to the spreadsheet where the add-on is used; it cannot access your other spreadsheets.</li>
-      <li><strong>Connect to external services</strong> — To make API calls to the Google Places API using your key.</li>
-      <li><strong>Display sidebar</strong> — To show the MyLeadScout search interface within Google Sheets.</li>
+      <li><strong>Google Places API</strong> &mdash; To fetch business data based on your search queries, using your own API key. Governed by the <a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google Maps Platform Terms</a> and <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
+      <li><strong>Google OAuth</strong> &mdash; For authentication. Governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</li>
+      <li><strong>Firebase / Google Cloud</strong> &mdash; For data storage and server-side functions. Data is stored in Google Cloud data centers.</li>
+      <li><strong>LemonSqueezy</strong> &mdash; For payment processing and subscription management. Governed by <a href="https://www.lemonsqueezy.com/privacy" target="_blank">LemonSqueezy's Privacy Policy</a>. We share only your email address with LemonSqueezy for checkout pre-fill and subscription linking.</li>
+      <li><strong>Vercel</strong> &mdash; For web application hosting. Governed by <a href="https://vercel.com/legal/privacy-policy" target="_blank">Vercel's Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>6. Data Sharing</h2>
+    <p>We do not sell, trade, or rent your personal data to third parties. We share data only as follows:</p>
+    <ul>
+      <li><strong>Google Places API:</strong> Your search queries are sent to Google using your own API key. Google may process this data per their policies.</li>
+      <li><strong>LemonSqueezy:</strong> Your email address is shared for payment processing and subscription management.</li>
+      <li><strong>Legal requirements:</strong> We may disclose data if required by law, legal process, or government request.</li>
     </ul>
 
     <h2>7. Data Retention</h2>
-    <p>Since we do not collect any data, there is nothing to retain or delete. Your API key remains in your Google UserProperties until you change or remove it via the add-on. You can also uninstall the add-on at any time to remove all associated data.</p>
+    <ul>
+      <li><strong>Account data</strong> is retained as long as your account is active.</li>
+      <li><strong>Pipeline/CRM data</strong> is retained as long as your account is active. You can delete individual leads from your pipeline at any time.</li>
+      <li><strong>API key</strong> can be deleted by you at any time through the Settings page.</li>
+      <li><strong>Account deletion:</strong> To request complete deletion of your account and all associated data, contact us at <strong>m70creativelabs@gmail.com</strong>.</li>
+    </ul>
 
-    <h2>8. Children's Privacy</h2>
+    <h2>8. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> your data &mdash; visible through the app interface (Dashboard, Pipeline, Settings).</li>
+      <li><strong>Delete</strong> your API key and individual pipeline leads at any time through the app.</li>
+      <li><strong>Request deletion</strong> of your entire account and all associated data by contacting us.</li>
+      <li><strong>Export</strong> your lead data as CSV or Excel at any time.</li>
+    </ul>
+
+    <h2>9. Cookies</h2>
+    <p>MyLeadScout uses only essential cookies required for authentication session management (NextAuth.js session cookie). We do not use advertising cookies, analytics cookies, or tracking cookies of any kind.</p>
+
+    <h2>10. Children's Privacy</h2>
     <p>MyLeadScout is not directed at children under the age of 13 and does not knowingly collect any information from children.</p>
 
-    <h2>9. Changes to This Policy</h2>
-    <p>If we update this Privacy Policy, we will revise the "Last updated" date at the top of this page. Since we do not collect emails or contact information, we encourage users to review this page periodically.</p>
+    <h2>11. Changes to This Policy</h2>
+    <p>If we update this Privacy Policy, we will revise the "Last updated" date at the top of this page. Continued use of the Service after changes constitutes acceptance of the revised policy. We encourage users to review this page periodically.</p>
 
-    <h2>10. Contact</h2>
-    <p>If you have questions about this Privacy Policy, please contact us at:</p>
+    <h2>12. Contact</h2>
+    <p>If you have questions about this Privacy Policy or wish to exercise your data rights, please contact us at:</p>
     <p><strong>m70creativelabs@gmail.com</strong></p>
   </div>
 </body>

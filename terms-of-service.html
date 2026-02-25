@@ -58,78 +58,105 @@
 <body>
   <div class="container">
     <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: February 11, 2026</p>
+    <p class="last-updated">Last updated: February 25, 2026</p>
 
     <h2>1. Acceptance of Terms</h2>
-    <p>By installing or using MyLeadScout ("the Add-on"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not install or use the Add-on.</p>
+    <p>By accessing or using MyLeadScout ("the Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
 
     <h2>2. Description of Service</h2>
-    <p>MyLeadScout is a Google Sheets Add-on that enables users to search for local business information using the Google Places API (New). The Add-on operates on a "Bring Your Own Key" (BYOK) model. Users must provide their own Google Maps API key to use the search functionality.</p>
+    <p>MyLeadScout is a web application that enables users to find local business leads using the Google Places API and manage them through a built-in sales pipeline (CRM). The Service operates on a "Bring Your Own Key" (BYOK) model &mdash; users provide their own Google Maps API key to power searches.</p>
+    <p>Key features of the Service include:</p>
+    <ul>
+      <li><strong>Lead Finder</strong> &mdash; Search for businesses by type and location using Google Maps data, with real-time streaming results and multi-area scanning.</li>
+      <li><strong>CSV Upload</strong> &mdash; Import your own business lists for qualification.</li>
+      <li><strong>Export</strong> &mdash; Download leads as CSV or Excel files.</li>
+      <li><strong>Sales Pipeline (CRM)</strong> &mdash; Qualify leads, track them through 8 deal stages, log activities (calls, emails, meetings), set follow-up reminders, and add tags.</li>
+      <li><strong>Dashboard Analytics</strong> &mdash; View pipeline statistics, conversion rates, and follow-up reminders.</li>
+      <li><strong>PDF Reports</strong> &mdash; Download one-page pipeline summary reports.</li>
+    </ul>
 
-    <h2>3. Your Responsibilities</h2>
+    <h2>3. Account and Authentication</h2>
+    <p>The Service uses Google OAuth for authentication. By signing in, you authorize MyLeadScout to access your Google account email address and profile information solely for the purpose of identifying and authenticating you. We do not access your Gmail, Google Drive, Google Sheets, or any other Google services.</p>
+
+    <h2>4. Subscription Plans</h2>
+    <p>MyLeadScout offers the following tiers:</p>
+    <ul>
+      <li><strong>Free:</strong> 20 leads total, single-area search, up to 20 leads in your pipeline.</li>
+      <li><strong>Pro ($4.99/month):</strong> 500 leads per month, multi-area search (up to 17 areas), up to 500 leads in your pipeline.</li>
+      <li><strong>Max ($19.99/month):</strong> Unlimited leads, multi-area search, unlimited pipeline capacity, priority support.</li>
+    </ul>
+    <p>Subscriptions are processed through <strong>LemonSqueezy</strong>, our third-party payment processor. By subscribing to a paid plan, you also agree to <a href="https://www.lemonsqueezy.com/terms" target="_blank">LemonSqueezy's Terms of Service</a>.</p>
+
+    <h2>5. Your Responsibilities</h2>
     <p>By using MyLeadScout, you agree that:</p>
     <ul>
-      <li>You will provide your own valid Google Maps API key.</li>
+      <li>You will provide your own valid Google Maps API key for search functionality.</li>
       <li>You are responsible for any costs incurred through your use of the Google Places API, as billed by Google to your Google Cloud account.</li>
-      <li>You will use the Add-on and the data it retrieves in compliance with all applicable laws and regulations, including the <a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google Maps Platform Terms of Service</a>.</li>
-      <li>You will not use the Add-on for any unlawful purpose, including but not limited to spamming, harassment, or unauthorized data collection.</li>
-      <li>You are solely responsible for how you use the business data retrieved through the Add-on.</li>
+      <li>You will use the Service and the data it retrieves in compliance with all applicable laws and regulations, including the <a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google Maps Platform Terms of Service</a>.</li>
+      <li>You will not use the Service for any unlawful purpose, including but not limited to spamming, harassment, or unauthorized data collection.</li>
+      <li>You are solely responsible for how you use the business data retrieved through the Service.</li>
+      <li>You will not attempt to reverse-engineer, decompile, or disassemble any part of the Service.</li>
+      <li>You will not share your account access with others or use automated tools to access the Service.</li>
     </ul>
 
-    <h2>4. API Key Security</h2>
-    <p>Your Google Maps API key is stored securely within Google's infrastructure using the UserProperties service. While we have designed the Add-on to handle your key securely, you are responsible for:</p>
+    <h2>6. API Key Security</h2>
+    <p>Your Google Maps API key is encrypted using <strong>AES-256-GCM</strong> before being stored in our database (Firebase Firestore). The encryption key is stored separately in our server environment and is never exposed in client-side code. While we have designed the Service to handle your key with strong security measures:</p>
     <ul>
-      <li>Keeping your API key confidential.</li>
-      <li>Setting appropriate API key restrictions in your Google Cloud Console.</li>
-      <li>Monitoring your API usage and billing in Google Cloud Console.</li>
+      <li>You are responsible for keeping your API key confidential.</li>
+      <li>You should set appropriate API key restrictions in your Google Cloud Console (e.g., restrict to the Google Places API only).</li>
+      <li>You are responsible for monitoring your API usage and billing in Google Cloud Console.</li>
     </ul>
 
-    <h2>5. No Warranty</h2>
+    <h2>7. Pipeline and CRM Data</h2>
+    <p>Leads you qualify into your pipeline, including associated notes, activities, tags, follow-up dates, and stage changes, are stored in our database (Firebase Firestore). This data is accessible only to your authenticated account.</p>
+
+    <h2>8. No Warranty</h2>
     <p>MyLeadScout is provided "AS IS" and "AS AVAILABLE" without warranties of any kind, either express or implied, including but not limited to:</p>
     <ul>
       <li>Warranties of merchantability or fitness for a particular purpose.</li>
-      <li>Warranties that the Add-on will be uninterrupted, error-free, or secure.</li>
+      <li>Warranties that the Service will be uninterrupted, error-free, or secure.</li>
       <li>Warranties regarding the accuracy, reliability, or completeness of data returned by the Google Places API.</li>
+      <li>Warranties regarding the availability or performance of third-party services (Google, Firebase, LemonSqueezy).</li>
     </ul>
 
-    <h2>6. Limitation of Liability</h2>
+    <h2>9. Limitation of Liability</h2>
     <p>To the maximum extent permitted by applicable law, the developers of MyLeadScout shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
     <ul>
       <li>Loss of profits, data, or business opportunities.</li>
       <li>Costs incurred through Google Places API usage.</li>
       <li>Any damages resulting from unauthorized access to or alteration of your data.</li>
       <li>Any errors or inaccuracies in the business data retrieved.</li>
+      <li>Service interruptions caused by third-party providers.</li>
     </ul>
 
-    <h2>7. Google's Terms</h2>
+    <h2>10. Google's Terms</h2>
     <p>Your use of MyLeadScout is also subject to Google's terms, including:</p>
     <ul>
-      <li><a href="https://workspace.google.com/terms/marketplace_developer_agreement/" target="_blank">Google Workspace Marketplace Developer Agreement</a></li>
       <li><a href="https://cloud.google.com/maps-platform/terms" target="_blank">Google Maps Platform Terms of Service</a></li>
       <li><a href="https://policies.google.com/terms" target="_blank">Google Terms of Service</a></li>
     </ul>
 
-    <h2>8. Modifications to the Service</h2>
-    <p>We reserve the right to modify, suspend, or discontinue the Add-on at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of the service.</p>
+    <h2>11. Modifications to the Service</h2>
+    <p>We reserve the right to modify, suspend, or discontinue the Service or any part of it at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuation of the Service.</p>
 
-    <h2>9. Changes to These Terms</h2>
-    <p>We may update these Terms from time to time. The updated version will be indicated by the "Last updated" date at the top of this page. Continued use of the Add-on after changes constitutes acceptance of the revised Terms.</p>
-
-    <h2>10. Refund Policy</h2>
-    <p>MyLeadScout offers a free tier with 20 leads per month, allowing you to fully evaluate the Add-on before upgrading to Pro.</p>
+    <h2>12. Refund Policy</h2>
+    <p>MyLeadScout offers a free tier with 20 leads, allowing you to fully evaluate the Service before upgrading.</p>
     <ul>
-      <li><strong>No Refunds:</strong> Due to the digital nature of the service and the availability of a free tier, all Pro subscription payments are final and non-refundable.</li>
-      <li><strong>Technical Issues:</strong> If you experience technical issues that prevent the Add-on from functioning and we are unable to resolve them, contact us at <strong>m70creativelabs@gmail.com</strong> and we will work with you on a case-by-case basis.</li>
-      <li><strong>Subscription Cancellation:</strong> You may cancel your subscription at any time. Upon cancellation, you will retain access to Pro features until the end of your current billing period.</li>
+      <li><strong>No Refunds:</strong> Due to the digital nature of the Service and the availability of a free tier, all subscription payments are final and non-refundable.</li>
+      <li><strong>Technical Issues:</strong> If you experience technical issues that prevent the Service from functioning and we are unable to resolve them, contact us at <strong>m70creativelabs@gmail.com</strong> and we will work with you on a case-by-case basis.</li>
+      <li><strong>Subscription Cancellation:</strong> You may cancel your subscription at any time through your LemonSqueezy billing portal. Upon cancellation, you will retain access to your paid tier features until the end of your current billing period. After that, your account will revert to the Free tier.</li>
     </ul>
 
-    <h2>11. Termination</h2>
-    <p>You may stop using the Add-on at any time by uninstalling it from your Google Sheets. Uninstalling the Add-on will remove all associated data, including your stored API key.</p>
+    <h2>13. Termination</h2>
+    <p>You may stop using the Service at any time. If you wish to delete your account data, contact us at <strong>m70creativelabs@gmail.com</strong>. We reserve the right to suspend or terminate your access to the Service if you violate these Terms.</p>
 
-    <h2>12. Governing Law</h2>
+    <h2>14. Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. The updated version will be indicated by the "Last updated" date at the top of this page. Continued use of the Service after changes constitutes acceptance of the revised Terms.</p>
+
+    <h2>15. Governing Law</h2>
     <p>These Terms shall be governed by and construed in accordance with the laws of Hyderabad, Telangana, India, without regard to its conflict of law provisions.</p>
 
-    <h2>13. Contact</h2>
+    <h2>16. Contact</h2>
     <p>If you have questions about these Terms, please contact us at:</p>
     <p><strong>m70creativelabs@gmail.com</strong></p>
   </div>
